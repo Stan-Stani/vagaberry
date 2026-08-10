@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 
 const SPEED = 60.0
+var food_need := 100
+# 100 of any means death
+var toxin_levels: Dictionary[String, int] = {a = 0, b = 0, c = 0, d = 0}
 
 
 func _physics_process(delta: float) -> void:
@@ -44,5 +47,21 @@ func _process(delta):
 		else:
 			$CollisionShape2D/AnimatedSprite2D.animation = "Walking"
 	
+		%FoodNeedValue.text = str(food_need)
+		
 	
+
+
+func _on_food_need_timer_timeout() -> void:
+	food_need -= 5
+	if food_need <= 0:
+		get_tree().quit()
+		
+func increase_toxin_level(key: String, value: int):
+	assert(value >= 0, "increase_toxin_level expects non-negative value")
+	assert(toxin_levels.has(key))
+	toxin_levels[key] += max(value, 0)
+	%ToxinLevelValue.text = str(toxin_levels)
 	
+	if toxin_levels[key] >= 100:
+		get_tree().quit()

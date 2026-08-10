@@ -1,0 +1,82 @@
+[gd_scene format=4 uid="uid://cfpt5hhm77ui1"]
+
+[ext_resource type="Script" uid="uid://bccpjb0poqq18" path="res://berry_bush.gd" id="1_6emdh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3fjh"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0xm2m"]
+_data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAACwAAAAUklGRqgAAABXRUJQVlA4TJwAAAAvL8AHEDdAJmCxDC4ByauGSIratoGqYirbYxvQPcgELBZGATGcKqitzPwHQKX70F1Yth0DNpFtO3mf0OcrAQlIQAI1P/n38MKQoY3ov9q2bRh5THHKF/Riba49aNAAin5GKXQTCsG3no4ZoMW+gQl4bRCNQfAakDEojUFBv6v9f+8wLKiEcUVtOPBvw/6/9wLJa4Ps99ARIo58gAg=")
+size_override = Vector2(48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
+atlas = SubResource("PortableCompressedTexture2D_0xm2m")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mycd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kek77")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Berry Bush" type="Area2D" unique_id=602886119]
+script = ExtResource("1_6emdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1262172868]
+shape = SubResource("RectangleShape2D_h3fjh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=356658598]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4c57u")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": false,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/Berry Bush.aseprite",
+"source_uid": 4600530164377839628
+}
+metadata/_aseprite_wizard_source_file_hash_ = "8131fdbc3e6c2ca792b68b5fb6421c83"

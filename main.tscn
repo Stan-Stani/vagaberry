@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cse2k84a03dph" path="res://knut.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://ddkdk4oj1a0o8" path="res://sprites/Ground.png" id="1_h2yge"]
-[ext_resource type="Script" uid="uid://bccpjb0poqq18" path="res://berry_bush.gd" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cfpt5hhm77ui1" path="res://berry_bush.tscn" id="3_h2yge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("1_h2yge")
@@ -55,72 +55,24 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3fjh"]
-
-[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_0xm2m"]
-_data = PackedByteArray("AAADAAUAAAABAAAAMAAAACAAAACwAAAAUklGRqgAAABXRUJQVlA4TJwAAAAvL8AHEDdAJmCxDC4ByauGSIratoGqYirbYxvQPcgELBZGATGcKqitzPwHQKX70F1Yth0DNpFtO3mf0OcrAQlIQAI1P/n38MKQoY3ov9q2bRh5THHKF/Riba49aNAAin5GKXQTCsG3no4ZoMW+gQl4bRCNQfAakDEojUFBv6v9f+8wLKiEcUVtOPBvw/6/9wLJa4Ps99ARIo58gAg=")
-size_override = Vector2(48, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7mycd"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(0, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kek77"]
-atlas = SubResource("PortableCompressedTexture2D_0xm2m")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_4c57u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lquwl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7mycd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_272bh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5vw27")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kek77")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="Main" type="Node2D" unique_id=693303076]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2038088468]
 tile_map_data = PackedByteArray("AAAFAAcAAQACAAAAAGAFAAYAAQAEAAAAAAAFAAUAAQABAAAAAAAFAAQAAQABAAAAAAAFAAMAAQABAAAAAAADAAMAAQABAAAAAAADAAQAAQABAAAAAAAEAAUAAQABAAAAAAAEAAQAAQABAAAAAAAEAAMAAQABAAAAAAAGAAkAAQAEAAAAACAGAAcAAQADAAAAAAAGAAYAAQACAAAAAAAHAAYAAQAEAAAAABAHAAcAAQACAAAAAFAHAAgAAQADAAAAAAAHAAkAAQACAAAAADAHAAoAAQABAAAAAAAIAAoAAQABAAAAAAAIAAkAAQAEAAAAADAIAAgAAQAEAAAAABAIAAcAAQABAAAAAAAJAAgAAQABAAAAAAAJAAkAAQABAAAAAAAJAAoAAQABAAAAAAAKAAoAAQABAAAAAAAKAAkAAQABAAAAAAAGAAgAAQADAAAAAAAEAAYAAQABAAAAAAAIAAYAAQABAAAAAAALAAoAAQABAAAAAAAAAA8AAQABAAAAAAABAA8AAQABAAAAAAACAA8AAQABAAAAAAADAA8AAQABAAAAAAAEAA8AAQABAAAAAAAFAA8AAQABAAAAAAAGAA8AAQABAAAAAAAHAA8AAQABAAAAAAAIAA8AAQABAAAAAAAJAA8AAQABAAAAAAAKAA8AAQABAAAAAAALAA8AAQABAAAAAAAMAA8AAQABAAAAAAANAA8AAQABAAAAAAAOAA8AAQABAAAAAAAPAA8AAQABAAAAAAAPAA4AAQABAAAAAAAOAA0AAQABAAAAAAAOAAwAAQABAAAAAAAOAAsAAQABAAAAAAAPAAsAAQABAAAAAAAPAAoAAQABAAAAAAAPAAwAAQABAAAAAAAPAA0AAQABAAAAAAAPAAkAAQABAAAAAAAPAAgAAQABAAAAAAAPAAcAAQABAAAAAAAPAAYAAQABAAAAAAAPAAUAAQABAAAAAAAPAAQAAQABAAAAAAAPAAMAAQABAAAAAAAPAAIAAQABAAAAAAAPAAEAAQABAAAAAAAPAAAAAQABAAAAAAAOAAAAAQABAAAAAAANAAAAAQABAAAAAAAMAAAAAQABAAAAAAALAAAAAQABAAAAAAAKAAAAAQABAAAAAAAJAAAAAQABAAAAAAAIAAAAAQABAAAAAAAHAAAAAQABAAAAAAAGAAAAAQABAAAAAAAFAAAAAQABAAAAAAAEAAAAAQABAAAAAAADAAAAAQABAAAAAAACAAAAAQABAAAAAAABAAAAAQABAAAAAAAAAAAAAQABAAAAAAAAAAEAAQABAAAAAAAAAAIAAQABAAAAAAAAAAMAAQABAAAAAAAAAAQAAQABAAAAAAAAAAUAAQABAAAAAAAAAAYAAQABAAAAAAAAAAcAAQABAAAAAAAAAAgAAQABAAAAAAAAAAkAAQABAAAAAAABAAoAAQABAAAAAAABAAsAAQABAAAAAAABAAwAAQABAAAAAAABAA0AAQABAAAAAAAAAA4AAQABAAAAAAAAAA0AAQABAAAAAAAAAAwAAQABAAAAAAAAAAsAAQABAAAAAAAAAAoAAQABAAAAAAABAA4AAQABAAAAAAACAA4AAQABAAAAAAACAA0AAQABAAAAAAADAA0AAQABAAAAAAAEAA0AAQABAAAAAAAFAA0AAQABAAAAAAAGAA4AAQABAAAAAAAHAA4AAQABAAAAAAAIAA4AAQABAAAAAAAFAA4AAQABAAAAAAAEAA4AAQABAAAAAAADAA4AAQABAAAAAAAJAA4AAQABAAAAAAAKAA4AAQABAAAAAAALAA4AAQABAAAAAAAMAA4AAQABAAAAAAANAA4AAQABAAAAAAAOAA4AAQABAAAAAAANAA0AAQABAAAAAAAMAA0AAQABAAAAAAALAA0AAQABAAAAAAAKAA0AAQABAAAAAAAJAA0AAQABAAAAAAAIAA0AAQABAAAAAAAHAA0AAQABAAAAAAAIAAwAAQABAAAAAAAGAA0AAQABAAAAAAAHAAwAAQABAAAAAAAJAAwAAQABAAAAAAAKAAwAAQABAAAAAAALAAwAAQABAAAAAAAMAAwAAQABAAAAAAANAAwAAQABAAAAAAANAAsAAQABAAAAAAAMAAsAAQABAAAAAAALAAsAAQABAAAAAAAKAAsAAQABAAAAAAAJAAsAAQABAAAAAAAIAAsAAQABAAAAAAAHAAsAAQABAAAAAAAGAAsAAQABAAAAAAAFAAsAAQABAAAAAAAEAAsAAQABAAAAAAAEAAwAAQABAAAAAAAFAAwAAQABAAAAAAAGAAwAAQABAAAAAAADAAwAAQABAAAAAAACAAwAAQABAAAAAAACAAsAAQABAAAAAAADAAsAAQABAAAAAAAFAAoAAQABAAAAAAAEAAoAAQABAAAAAAADAAoAAQABAAAAAAACAAoAAQABAAAAAAAGAAoAAQABAAAAAAAFAAkAAQABAAAAAAAEAAkAAQABAAAAAAADAAkAAQABAAAAAAACAAkAAQABAAAAAAABAAkAAQABAAAAAAABAAgAAQABAAAAAAACAAgAAQABAAAAAAADAAgAAQABAAAAAAAEAAgAAQABAAAAAAAFAAgAAQAEAAAAACAEAAcAAQABAAAAAAADAAcAAQABAAAAAAACAAcAAQABAAAAAAABAAcAAQABAAAAAAABAAYAAQABAAAAAAABAAUAAQABAAAAAAACAAUAAQABAAAAAAACAAQAAQABAAAAAAADAAUAAQABAAAAAAADAAYAAQABAAAAAAACAAYAAQABAAAAAAACAAMAAQABAAAAAAACAAIAAQABAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAAEAAEAAQABAAAAAAABAAEAAQABAAAAAAABAAIAAQABAAAAAAABAAMAAQABAAAAAAABAAQAAQABAAAAAAAEAAIAAQABAAAAAAAFAAIAAQABAAAAAAAGAAIAAQABAAAAAAAHAAIAAQABAAAAAAAIAAIAAQABAAAAAAAJAAIAAQABAAAAAAAKAAIAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAAOAAIAAQABAAAAAAAOAAMAAQABAAAAAAAOAAQAAQABAAAAAAAOAAUAAQABAAAAAAAOAAYAAQABAAAAAAAOAAcAAQABAAAAAAAOAAgAAQABAAAAAAAOAAkAAQABAAAAAAAOAAoAAQABAAAAAAANAAoAAQABAAAAAAANAAkAAQABAAAAAAANAAgAAQABAAAAAAANAAcAAQABAAAAAAANAAYAAQABAAAAAAANAAUAAQABAAAAAAANAAQAAQABAAAAAAANAAMAAQABAAAAAAANAAIAAQABAAAAAAAMAAIAAQABAAAAAAAMAAMAAQABAAAAAAAMAAQAAQABAAAAAAAMAAUAAQABAAAAAAAMAAYAAQABAAAAAAAMAAcAAQABAAAAAAAMAAgAAQABAAAAAAAMAAkAAQABAAAAAAAMAAoAAQABAAAAAAALAAkAAQABAAAAAAALAAgAAQABAAAAAAALAAcAAQABAAAAAAALAAYAAQABAAAAAAALAAUAAQABAAAAAAALAAQAAQABAAAAAAALAAMAAQABAAAAAAALAAIAAQABAAAAAAAKAAMAAQABAAAAAAAKAAQAAQABAAAAAAAKAAUAAQABAAAAAAAKAAYAAQABAAAAAAAKAAcAAQABAAAAAAAKAAgAAQABAAAAAAAJAAcAAQABAAAAAAAJAAYAAQABAAAAAAAJAAUAAQABAAAAAAAJAAQAAQABAAAAAAAJAAMAAQABAAAAAAAIAAEAAQABAAAAAAAHAAEAAQABAAAAAAAGAAEAAQABAAAAAAAFAAEAAQABAAAAAAAJAAEAAQABAAAAAAAIAAMAAQABAAAAAAAHAAMAAQABAAAAAAAGAAMAAQABAAAAAAAGAAQAAQABAAAAAAAGAAUAAQABAAAAAAAHAAUAAQABAAAAAAAIAAUAAQABAAAAAAAIAAQAAQABAAAAAAAHAAQAAQABAAAAAAADAAIAAQABAAAAAAA=")
 tile_set = SubResource("TileSet_imqos")
 
-[node name="Knut" type="CharacterBody2D" parent="." unique_id=1495534137 groups=["player"]]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1495534137 groups=["player"]]
+unique_name_in_owner = true
 position = Vector2(29.999998, 5.9999995)
 scale = Vector2(0.99999994, 0.99999994)
 script = ExtResource("1_0xm2m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Knut" unique_id=1546801674]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1546801674]
 position = Vector2(1.9073486e-06, 4.7683716e-07)
 scale = Vector2(0.9999998, 0.9999998)
 shape = SubResource("RectangleShape2D_61w15")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Knut/CollisionShape2D" unique_id=958359889]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/CollisionShape2D" unique_id=958359889]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_lquwl")
 animation = &"Walking"
@@ -146,66 +98,56 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "3954bf204f6c0eb0e37625a6cf6bdc55"
 
-[node name="Berry Bush" type="Area2D" parent="." unique_id=525668311]
-position = Vector2(55, 25)
-script = ExtResource("2_0xm2m")
+[node name="FoodNeedTimer" type="Timer" parent="Player" unique_id=1842189448]
+autostart = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Berry Bush" unique_id=1383950128]
-shape = SubResource("RectangleShape2D_h3fjh")
+[node name="Berry Bush" parent="." unique_id=602886119 instance=ExtResource("3_h2yge")]
+position = Vector2(122, 109)
+sprite_frame = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Berry Bush/CollisionShape2D" unique_id=2073696537]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_4c57u")
-frame = 2
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": false,
-"pending_changes": {},
-"slice_section": false
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://sprites/Berry Bush.aseprite",
-"source_uid": 4600530164377839628
-}
-metadata/_aseprite_wizard_source_file_hash_ = "8131fdbc3e6c2ca792b68b5fb6421c83"
+[node name="Berry Bush3" parent="." unique_id=304575596 instance=ExtResource("3_h2yge")]
+position = Vector2(97, 122)
+sprite_frame = 1
 
-[node name="Berry Bush2" type="Area2D" parent="." unique_id=777229236]
-position = Vector2(123, 139)
-script = ExtResource("2_0xm2m")
+[node name="Berry Bush4" parent="." unique_id=42374578 instance=ExtResource("3_h2yge")]
+position = Vector2(114, 146)
+sprite_frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Berry Bush2" unique_id=410579881]
-shape = SubResource("RectangleShape2D_h3fjh")
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1399914426]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Berry Bush2/CollisionShape2D" unique_id=999685882]
-texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_4c57u")
-frame = 1
-metadata/_aseprite_wizard_interface_config_ = {
-"animation_section": false,
-"layer_section": false,
-"pending_changes": {},
-"slice_section": false
-}
-metadata/_aseprite_wizard_config_ = {
-"embed_tex": true,
-"layers": [],
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"scale": "1.0",
-"should_round_fps": true,
-"slice": "",
-"source": "res://sprites/Berry Bush.aseprite",
-"source_uid": 4600530164377839628
-}
-metadata/_aseprite_wizard_source_file_hash_ = "8131fdbc3e6c2ca792b68b5fb6421c83"
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1643128537]
+offset_left = 197.0
+offset_top = 2.0
+offset_right = 255.0
+offset_bottom = 42.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer" unique_id=1714982571]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer" unique_id=2142104820]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=990215011]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Food Need"
+
+[node name="FoodNeedValue" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1105746741]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "100"
+
+[node name="ToxinLevelLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=419675876]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Toxin Level"
+
+[node name="ToxinLevelValue" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=668980666]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "0"
+
+[connection signal="timeout" from="Player/FoodNeedTimer" to="Player" method="_on_food_need_timer_timeout"]

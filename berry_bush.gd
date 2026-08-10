@@ -1,5 +1,11 @@
+@tool
 extends Area2D
 
+@export var sprite_frame := 0:
+	set(value):
+		sprite_frame = value
+		$CollisionShape2D/AnimatedSprite2D.frame = value
+		
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,7 +23,21 @@ func _on_body_exited(body):
 	if body.is_in_group("player"):
 		player_inside = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+@onready var sprite = $CollisionShape2D/AnimatedSprite2D
+# Called every frame. 'delta' is the elapsed time s
+#  ince the previous frame.
 func _process(_delta: float) -> void:
-	if player_inside and Input.is_action_just_pressed("interact"):
-		print("Interacted!")
+	if player_inside and Input.is_action_just_pressed("interact") && sprite.frame != 0:
+		
+		%Player.food_need = 100
+		%Player/FoodNeedTimer.start()
+		
+		var frame_to_toxin_array = [null, 'a', 'b', 'c', 'd']
+		var toxin_amount = 50
+		%Player.increase_toxin_level(frame_to_toxin_array[sprite.frame], toxin_amount)
+		
+		sprite.frame = 0
+
+		
+		
+	
