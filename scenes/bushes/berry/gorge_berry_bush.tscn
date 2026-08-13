@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://t1k1fb84xht1"]
+
+[ext_resource type="PackedScene" uid="uid://cfpt5hhm77ui1" path="res://scenes/bushes/berry/base/berry_bush.tscn" id="1_base"]
+
+[node name="Gorge Berry Bush" unique_id=463433247 instance=ExtResource("1_base")]
+toxin_value = 75
+food_value = 17
+sprite_frame = 3
+
+[node name="AnimatedSprite2D" parent="CollisionShape2D" parent_id_path=PackedInt32Array(1262172868) index="0" unique_id=356658598]
+frame = 3

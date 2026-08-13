@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c4polxghsf67r"]
+
+[ext_resource type="PackedScene" uid="uid://cfpt5hhm77ui1" path="res://scenes/bushes/berry/base/berry_bush.tscn" id="1_base"]
+
+[node name="Meh Berry Bush" unique_id=484358360 instance=ExtResource("1_base")]
+toxin_value = 66
+food_value = 66
+sprite_frame = 1
+
+[node name="AnimatedSprite2D" parent="CollisionShape2D" parent_id_path=PackedInt32Array(1262172868) index="0" unique_id=356658598]
+frame = 1

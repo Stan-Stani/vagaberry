@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cfpt5hhm77ui1"]
 
-[ext_resource type="Script" uid="uid://bccpjb0poqq18" path="res://berry_bush.gd" id="1_6emdh"]
+[ext_resource type="Script" uid="uid://bccpjb0poqq18" path="res://scenes/bushes/berry/base/berry_bush.gd" id="1_6emdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3fjh"]
 
@@ -53,6 +53,8 @@ animations = [{
 
 [node name="Berry Bush" type="Area2D" unique_id=602886119]
 script = ExtResource("1_6emdh")
+toxin_value = null
+food_value = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1262172868]
 shape = SubResource("RectangleShape2D_h3fjh")
