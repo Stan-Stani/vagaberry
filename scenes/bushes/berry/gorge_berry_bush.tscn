@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cfpt5hhm77ui1" path="res://scenes/bushes/berry/base/berry_bush.tscn" id="1_base"]
 
 [node name="Gorge Berry Bush" unique_id=463433247 instance=ExtResource("1_base")]
-toxin_value = 75
+toxin_value = 40
 food_value = 17
 sprite_frame = 3
 
