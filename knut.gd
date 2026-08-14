@@ -80,7 +80,7 @@ func _on_vitals_timeout() -> void:
 	
 	for key in toxin_levels:
 		if toxin_levels[key] > 0:
-			toxin_levels[key] -= 0.5
+			toxin_levels[key] -= 2
 			%ToxinLevelValue.text = str(toxin_levels)
 			
 	energy  -= 2
