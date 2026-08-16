@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://ca11fe23jirc"
+path="res://.godot/imported/Font.png-ea0b4545eb58f3b7c1c12e7a8907395a.fontdata"
+
+[deps]
+
+source_file="res://sprites/Font.png"
+dest_files=["res://.godot/imported/Font.png-ea0b4545eb58f3b7c1c12e7a8907395a.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("0x20-0x20", "0x30-0x39", "0x41-0x5a", "0x3a-0x3a")
+kerning_pairs=PackedStringArray()
+columns=38
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=2

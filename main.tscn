@@ -1,11 +1,13 @@
 [gd_scene format=4 uid="uid://b21y3d5nkv7i4"]
 
 [ext_resource type="Script" uid="uid://cse2k84a03dph" path="res://knut.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://3yrwex7o8kok" path="res://main.gd" id="1_5vw27"]
 [ext_resource type="Texture2D" uid="uid://ddkdk4oj1a0o8" path="res://sprites/Ground.png" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c4polxghsf67r" path="res://scenes/bushes/berry/meh_berry_bush.tscn" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://c8ump32e6vimp" path="res://hud.gd" id="3_272bh"]
 [ext_resource type="PackedScene" uid="uid://84mhjvm1h4my" path="res://scenes/bushes/berry/devil_berry_bush.tscn" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://t1k1fb84xht1" path="res://scenes/bushes/berry/gorge_berry_bush.tscn" id="5_5vw27"]
+[ext_resource type="FontFile" uid="uid://ca11fe23jirc" path="res://sprites/Font.png" id="5_kek77"]
 [ext_resource type="PackedScene" uid="uid://qsyh7774133w" path="res://scenes/bushes/berry/bad_berry_bush.tscn" id="6_kek77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
@@ -1577,7 +1579,21 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w48qg"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cqfq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vivmo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg77c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycdy4"]
+
 [node name="Main" type="Node2D" unique_id=693303076]
+script = ExtResource("1_5vw27")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2038088468]
 z_index = -1
@@ -1645,17 +1661,6 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
 text = "Food Need"
-
-[node name="FoodNeedValue" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1105746741]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-text = "100"
-
-[node name="ToxinLevelLabel" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=419675876]
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-text = "Toxin Level"
 
 [node name="ToxinLevelValue" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer" unique_id=668980666]
 unique_name_in_owner = true
@@ -1810,7 +1815,46 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "306d464d11b766990d079bcf20ec6d18"
 
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HUD" unique_id=836596507]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer2" unique_id=49668783]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/HUD/MarginContainer2/VBoxContainer" unique_id=605783171]
+layout_mode = 2
+
+[node name="FoodNeedLabel" type="Label" parent="CanvasLayer/HUD/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=83254634]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "FOOD:"
+
+[node name="FoodNeedValue" type="Label" parent="CanvasLayer/HUD/MarginContainer2/VBoxContainer/HBoxContainer" unique_id=1835490418]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "100"
+
+[node name="DistanceLabel" type="Label" parent="CanvasLayer/HUD/MarginContainer2/VBoxContainer" unique_id=1463940302]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "DISTANCE:"
+
+[node name="DistanceValue" type="Label" parent="CanvasLayer/HUD/MarginContainer2/VBoxContainer" unique_id=321507251]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "0"
+
 [node name="EndScreen" type="ColorRect" parent="CanvasLayer" unique_id=947607979]
+unique_name_in_owner = true
 offset_right = 256.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
@@ -2199,6 +2243,44 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "306d464d11b766990d079bcf20ec6d18"
 
+[node name="PlayAgainButton" type="Button" parent="CanvasLayer/EndScreen" unique_id=1821341183]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 48.0
+offset_top = 160.0
+offset_right = 209.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.20392157, 0.39607844, 0.14117648, 1)
+theme_override_colors/font_focus_color = Color(0.87058824, 0.93333334, 0.8392157, 1)
+theme_override_colors/font_hover_color = Color(0.87058824, 0.93333334, 0.8392157, 1)
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_styles/normal = SubResource("StyleBoxFlat_w48qg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2cqfq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vivmo")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dg77c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ycdy4")
+text = "PLAY AGAIN"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EndScreen" unique_id=2038605898]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/EndScreen/MarginContainer" unique_id=1775877326]
+layout_mode = 2
+
+[node name="FoodNeedLabel" type="Label" parent="CanvasLayer/EndScreen/MarginContainer/HBoxContainer" unique_id=916924834]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "FOOD:"
+
+[node name="FoodNeedValue" type="Label" parent="CanvasLayer/EndScreen/MarginContainer/HBoxContainer" unique_id=105690159]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_kek77")
+theme_override_font_sizes/font_size = 5
+text = "100"
+
 [node name="Bad Berry Bush" parent="." unique_id=662930851 instance=ExtResource("6_kek77")]
 position = Vector2(44, 56)
 
@@ -2261,3 +2343,4 @@ position = Vector2(3210, -33)
 
 [connection signal="timeout" from="Player/VitalsTimer" to="Player" method="_on_vitals_timeout"]
 [connection signal="timeout" from="Player/VitalsTimer" to="CanvasLayer/HUD" method="_on_vitals_timer_timeout"]
+[connection signal="button_down" from="CanvasLayer/EndScreen/PlayAgainButton" to="." method="_on_play_again_button_button_down"]
