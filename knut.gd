@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+@onready var eat_audio = $AudioStreamPlayer
 
 const SPEED = 60.0
 var food_level := 100.0
@@ -141,4 +141,5 @@ func increase_food_level(value: float):
 	assert(value >= 0, "increase_food_level expects non-negative value")
 	var safe_food_change = clamp(value, 0, 100 - food_level)
 	food_level += safe_food_change
+	eat_audio.play()
 	

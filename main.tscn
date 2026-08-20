@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://da4dc3a8wa88j" path="res://sprites/Ground.png" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c4polxghsf67r" path="res://scenes/bushes/berry/meh_berry_bush.tscn" id="3_7mycd"]
 [ext_resource type="Script" uid="uid://c8ump32e6vimp" path="res://hud.gd" id="3_272bh"]
+[ext_resource type="AudioStream" uid="uid://ccl8vhfy0d0kd" path="res://sounds/3nFRoBce.wav" id="4_4c57u"]
 [ext_resource type="PackedScene" uid="uid://84mhjvm1h4my" path="res://scenes/bushes/berry/devil_berry_bush.tscn" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://t1k1fb84xht1" path="res://scenes/bushes/berry/gorge_berry_bush.tscn" id="5_5vw27"]
 [ext_resource type="FontFile" uid="uid://ca11fe23jirc" path="res://sprites/Font.png" id="5_kek77"]
@@ -1249,6 +1250,9 @@ metadata/_aseprite_wizard_source_file_hash_ = "9174e4e8d2a8a3402a35117ad222b27d"
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=155328760]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Player" unique_id=2088152114]
+stream = ExtResource("4_4c57u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1399914426]
 
