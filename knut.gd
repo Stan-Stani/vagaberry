@@ -8,7 +8,7 @@ var toxin_levels: Dictionary[String, float] = {a = 0, b = 0, c = 0, d = 0}
 var toxin_colors_dict: Dictionary[String, String] = {a = "#d04648", b = "#30346d", c ="#d2aa99", d = "#6dc2ca"}
 var vomit_animation_by_toxin: Dictionary[String, String] = {a = "VomitA", b = "VomitB", c = "VomitC", d = "VomitD"}
 # meh, devil, gorge, bad
-var toxin_dose: Dictionary[String, float] = {a = 66, b = 40, c = 80, d = 80}
+var toxin_dose: Dictionary[String, float] = {a = 66, b = 80, c = 33, d = 80}
 
 var times_vomited := 0 
 
@@ -106,7 +106,7 @@ func _on_vitals_timeout() -> void:
 		if toxin_levels[key] > 0:
 			toxin_levels[key] -= 2
 			%ToxinLevelValue.text = str(toxin_levels)
-			if toxin_levels[key] >= 100 - toxin_dose[key]:
+			if toxin_levels[key] + toxin_dose[key] >= 100:
 				var color_rect := ColorRect.new()
 				color_rect.color = Color(toxin_colors_dict[key])
 				color_rect.position = position + Vector2(randi_range(-6, 6), randi_range(-6, 6))

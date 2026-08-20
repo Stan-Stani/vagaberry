@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin.tileset-texture"
+type="PortableCompressedTexture2D"
 uid="uid://c6psjf5d3jhbg"
 path="res://.godot/imported/Ground.aseprite-cec10662e8d329b4a376305d7ecb4fa6.res"
 
@@ -12,3 +12,8 @@ dest_files=["res://.godot/imported/Ground.aseprite-cec10662e8d329b4a376305d7ecb4
 
 [params]
 
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=false
+sheet/sheet_type="columns"
+sheet/sheet_columns=12
+sheet/frame_padding=0
